@@ -37,9 +37,13 @@ for i in original_list:
 # 1 Using a list comprehension, create a new list called "newlist" out of the list "numbers", 
 # which contains only the positive numbers from the list, as integers.
 
+from sqlite3 import TimestampFromTicks
+
+
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
-
+newlist = [x for x in numbers if x>=0]
+print(newlist)
 
 
 ## 2 create a list of integers which specify the length of each word in
@@ -48,7 +52,8 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
-
+list1 = [len(x) for x in words if x != "the"]
+print(list1)
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
 ## Contruct a list of the names of vehicles with weight below 5000 kilograms. 
@@ -57,22 +62,24 @@ words = sentence.split()
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
 
+list2 = [x.upper() for x in dict if dict[x] < 5000]
+print(list2)
+
+## 3 Find all the numbers from 1 to 1000 that have a 4 in them
+list3 = [x for x in range(1001) if '4' in str(x)]
+print(list3)
 
 
+## 4 count how many times the word 'the' appears in the text file - 'sometext.txt'
+myfile = open("sometext.txt", "r").read().split()
+list4 = len([word for word in myfile if word.lower() =="the"])
+print(list4)
 
-## Find all the numbers from 1 to 1000 that have a 4 in them
+## 5 Extract the numbers from the following phrase ##
 
-
-
-## count how many times the word 'the' appears in the text file - 'sometext.txt'
-
-
-
-## Extract the numbers from the following phrase ##
-
-phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
-"event, with about 3 or 4 that were classifled as serious per event.'
-
+phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each event, with about 3 or 4 that were classifled as serious per event.'
+list5 = [item for item in phrase.split() if item.isdigit()]
+print(list5)
 
 
 
