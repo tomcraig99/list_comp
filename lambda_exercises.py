@@ -98,10 +98,10 @@ check whether a given string contains a capital letter, a lower case letter, a n
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 """
 
-password = "AikjbAjbWADb231645645WAjb"
-verification = list(password)
-test = list([x for x in verification if lambda x: x.isupper() or x.islower() or x.isdigit() and len(verification >= 8)])
-print(test)
+password = 'wdBADB12JKAa@'
+method = lambda x: (any(b.islower() for b in password) and any(b.isupper() for b in password) and any(b.isdigit() for b in password)) and len(password)>=8
+print(method(password))
+
 
 """ 7)
 Write a Python program to sort a list of tuples using Lambda.
@@ -112,3 +112,8 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 """
+
+
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+original_scores.sort(key=lambda x: x[1])
+print(original_scores)
