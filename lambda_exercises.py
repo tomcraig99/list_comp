@@ -100,7 +100,10 @@ check whether a given string contains a capital letter, a lower case letter, a n
 
 password = 'wdBADB12JKAa@'
 method = lambda x: (any(b.islower() for b in password) and any(b.isupper() for b in password) and any(b.isdigit() for b in password)) and len(password)>=8
-print(method(password))
+if method(password):
+    print('Valid Password')
+else:
+    print('Invalid')
 
 
 """ 7)
